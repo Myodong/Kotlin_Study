@@ -40,7 +40,16 @@ class ListViewAdapter(val List : MutableList<ListViewModel>) : BaseAdapter(){
         // A,B,C 값을 listview_item 넣어줘야함
         val title = convertView!!.findViewById<TextView>(R.id.listviewItem)
         //List[position] List의 0 인덱스의 item 1인덱스 item 2인덱스 item을 하나하나 씩 넣어 들어가게 해라
-        title.text = List[position]
+        //title.text = List[position]
+
+        // List[position].title title은 ListViewModel의 var title : String ="" 이다
+        // a c e 가져오기
+//        title.text = List[position].title
+        //b, d, f 가져오기
+        title.text = List[position].content
+        // List[0] -> ListViewModel("a","b")
+        // List[0] -> ListViewModel("c","d")
+        // List[0] -> ListViewModel("e","f")
         return  convertView!!
     }
 }
