@@ -2,6 +2,7 @@ package com.myodong.list_ex
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,5 +15,7 @@ class MainActivity : AppCompatActivity() {
         testList.add("a")
         testList.add("b")
         testList.add("c")
+
+        Log.d("MainActivity",testList.toString())
     }
 }
