@@ -17,5 +17,9 @@ class MainActivity : AppCompatActivity() {
         testList.add("c")
 
         Log.d("MainActivity",testList.toString())
+
+        Log.d("MainActivity",testList[0])
+        Log.d("MainActivity",testList[1])
+        Log.d("MainActivity",testList[2])
     }
 }
