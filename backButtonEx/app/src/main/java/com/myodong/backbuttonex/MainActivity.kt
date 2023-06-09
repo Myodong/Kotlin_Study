@@ -6,6 +6,7 @@ import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
     // 변수 선언
     private  var isDouble = false
@@ -19,6 +20,11 @@ class MainActivity : AppCompatActivity() {
 
         // Log로 동작 하는지 확인해 보기
         Log.d("MainActivity", "backbutton 작동")
+
+        // 두번 클릭 시 종료 시켜라 
+        if(isDouble == true){
+            finish()
+        }
 
         isDouble = true
         // 메세지 출력
