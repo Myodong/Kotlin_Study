@@ -3,13 +3,18 @@ package com.myodong.goodwords
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.myodong.goodwords.databinding.ActivityMainBinding
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private  lateinit var binding : ActivityMainBinding
+    // 뒤로가기 종료 변수
+    private var isDouble = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -41,5 +46,20 @@ class MainActivity : AppCompatActivity() {
         
         // List에서 원소를 random으로 화면에 보여주기
         binding.goodWordTextArea.setText(sentenceList.random())
+    }
+
+    override fun onBackPressed() {
+
+        if (isDouble==true){
+            finish()
+        }
+
+        Toast.makeText(this, "한번더 누르면 종료됩니다.",Toast.LENGTH_LONG).show()
+        // 변수값 변경
+        isDouble = true
+
+        Handler().postDelayed(Runnable {
+            isDouble = false
+        },2000)
     }
 }
