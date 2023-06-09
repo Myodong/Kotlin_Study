@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         // 변수 변경
         isDouble = true
        
-        // 2초뒤 다시 변수 변경
+        // 2초뒤 다시 변수값 변경
         Handler().postDelayed(Runnable {
             isDouble=false
         },2000)
