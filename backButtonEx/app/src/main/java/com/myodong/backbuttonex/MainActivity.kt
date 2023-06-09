@@ -12,7 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
     override  fun onBackPressed(){
-        Log.d("MainActivity","backbutton")
+        // Log로 동작 하는지 확인해 보기
+        Log.d("MainActivity","backbutton 작동")
     }
 
 }
