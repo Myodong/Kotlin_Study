@@ -20,16 +20,16 @@ class MainActivity : AppCompatActivity() {
 
         // Log로 동작 하는지 확인해 보기
         Log.d("MainActivity", "backbutton 작동")
-
-        // 두번 클릭 시 종료 시켜라 
+        // 두번 클릭 시 종료 시켜라
         if(isDouble == true){
             finish()
         }
-
-        isDouble = true
+        
         // 메세지 출력
         Toast.makeText(this, "한번더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
-
+        // 변수 변경
+        isDouble = true
+       
         // 2초뒤 다시 변수 변경
         Handler().postDelayed(Runnable {
             isDouble=false
