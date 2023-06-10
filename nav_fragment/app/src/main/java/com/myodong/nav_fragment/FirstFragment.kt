@@ -21,17 +21,16 @@ class FirstFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_first, container, false)
 
-        // 버튼1 클릭 시
-        view.findViewById<Button>(R.id.btn1).setOnClickListener{
-
-        }
         // 버튼2 클릭 시
         view.findViewById<Button>(R.id.btn2).setOnClickListener{
             // firstFragment 에서 secondFragment로 이동한다.
             it.findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
-        }// 버튼3 클릭 시
-        view.findViewById<Button>(R.id.btn3).setOnClickListener{
+        }
 
+        // 버튼3 클릭 시
+        view.findViewById<Button>(R.id.btn3).setOnClickListener{
+            // firstFragment 에서 thirdFragment로 이동한다.
+            it.findNavController().navigate(R.id.action_firstFragment_to_thirdFragment)
         }
 
 
