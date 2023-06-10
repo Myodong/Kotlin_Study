@@ -28,7 +28,7 @@ class ThirdFragment : Fragment() {
         }
 
         // 버튼2 클릭 시
-        view.findViewById<Button>(R.id.btn3).setOnClickListener{
+        view.findViewById<Button>(R.id.btn2).setOnClickListener{
             // thirdFragment로 에서 secondFragment 이동한다.
             it.findNavController().navigate(R.id.action_thirdFragment_to_secondFragment)
         }
