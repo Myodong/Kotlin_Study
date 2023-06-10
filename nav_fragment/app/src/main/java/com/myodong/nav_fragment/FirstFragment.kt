@@ -24,11 +24,11 @@ class FirstFragment : Fragment() {
         // 버튼1 클릭 시
         view.findViewById<Button>(R.id.btn1).setOnClickListener{
 
-            it.findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
         }
         // 버튼2 클릭 시
         view.findViewById<Button>(R.id.btn2).setOnClickListener{
-
+            // firstFragment 에서 secondFragment로 이동한다.
+            it.findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
         }// 버튼3 클릭 시
         view.findViewById<Button>(R.id.btn3).setOnClickListener{
 
