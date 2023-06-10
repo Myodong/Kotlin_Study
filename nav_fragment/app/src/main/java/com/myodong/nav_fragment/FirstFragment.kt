@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 class FirstFragment : Fragment() {
 
@@ -16,7 +17,23 @@ class FirstFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_first, container, false)
+
+        // 버튼1 클릭 시
+        view.findViewById<Button>(R.id.btn1).setOnClickListener{
+
+        }
+        // 버튼2 클릭 시
+        view.findViewById<Button>(R.id.btn2).setOnClickListener{
+
+        }// 버튼3 클릭 시
+        view.findViewById<Button>(R.id.btn3).setOnClickListener{
+
+        }
+
+
+        return view
     }
 
 
