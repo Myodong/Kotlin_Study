@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.findNavController
 
 class FirstFragment : Fragment() {
 
@@ -23,6 +24,7 @@ class FirstFragment : Fragment() {
         // 버튼1 클릭 시
         view.findViewById<Button>(R.id.btn1).setOnClickListener{
 
+            it.findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
         }
         // 버튼2 클릭 시
         view.findViewById<Button>(R.id.btn2).setOnClickListener{
