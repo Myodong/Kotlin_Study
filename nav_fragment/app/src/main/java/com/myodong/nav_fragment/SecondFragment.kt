@@ -23,14 +23,14 @@ class SecondFragment : Fragment() {
 
         // 버튼1 클릭 시
         view.findViewById<Button>(R.id.btn1).setOnClickListener{
-            // firstFragment 에서 secondFragment로 이동한다.
-            it.findNavController().navigate(R.id.action_)
+            // secondFragment로 에서 firstFragment 이동한다.
+            it.findNavController().navigate(R.id.action_secondFragment_to_firstFragment)
         }
 
         // 버튼3 클릭 시
         view.findViewById<Button>(R.id.btn3).setOnClickListener{
-            // firstFragment 에서 thirdFragment로 이동한다.
-            it.findNavController().navigate(R.id.action_firstFragment_to_thirdFragment)
+            // secondFragment로 에서 thirdFragment로 이동한다.
+            it.findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
         }
 
         return view
