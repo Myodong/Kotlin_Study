@@ -23,20 +23,19 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.noEmailLoginBtn).setOnClickListener{
 
             auth.signInAnonymously().addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) { // 로그인 성공시
+                if (task.isSuccessful) { // 로그인 성공시
 
-                        val user = auth.currentUser
+                    val user = auth.currentUser
 
-                        // uid 값을 가져온다
-                        Log.d("MainActivity",user!!.uid)
+                    // uid 값을 가져온다
+                    Log.d("MainActivity",user!!.uid)
 
-                    } else {
-                        // If sign in fails, display a message to the user.
+                } else {
+                    // If sign in fails, display a message to the user.
 
-                        Toast.makeText(baseContext,"Authentication failed.",Toast.LENGTH_SHORT,).show()
-                    }
+                    Toast.makeText(baseContext,"Authentication failed.",Toast.LENGTH_SHORT,).show()
                 }
+            }
         }
-
     }
 }
