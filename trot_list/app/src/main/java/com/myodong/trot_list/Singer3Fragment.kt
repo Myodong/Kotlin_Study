@@ -58,7 +58,7 @@ class Singer3Fragment : Fragment() {
 
         // 2번 이미지 클릭 시
         val image2 = view.findViewById<ImageView>(R.id.image2)
-        image1.setOnClickListener {
+        image2.setOnClickListener {
             // 2번 이미지로 이동
             it.findNavController().navigate(R.id.action_singer3Fragment_to_singer2Fragment)
         }
