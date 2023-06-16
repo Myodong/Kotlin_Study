@@ -31,8 +31,11 @@ class MainActivity : AppCompatActivity() {
 
             val mAlertDialog = mBuilder.show()
 
+            // 다이얼로그에서 찾아오기
+            val DateSelecBtn = mAlertDialog.findViewById<Button>(R.id.dateSelectBtn)
+
             // 날짜를 선택해주세요 버튼 클릭 시 이벤트
-            mAlertDialog.findViewById<Button>(R.id.dateSelect)?.setOnClickListener {
+            DateSelecBtn?.setOnClickListener {
 
                 // 년월일 켈린더 가져오기
                 val today = GregorianCalendar()
@@ -46,8 +49,9 @@ class MainActivity : AppCompatActivity() {
 
                         // year.toString() == "${year}"
                         //Log.e("MAIN", year.toString()) ==Log.e("MAIN", "${year}")
+                        // 날자 선택시 로그 출력
                         Log.e("MAIN", "${year},${month+1},${dayOfMonth}")
-
+                        DateSelecBtn.setText("${year},${month+1},${dayOfMonth}")
                     }
                 }, year, month, date )
                 dlg.show()
