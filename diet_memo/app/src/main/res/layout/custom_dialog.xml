@@ -2,13 +2,14 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <EditText
         android:layout_margin="20dp"
         android:hint="운동 메모를 입력해 주세요"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="@android:color/transparent"/>
 
     <LinearLayout
@@ -19,6 +20,7 @@
         android:background="#999999"/>
 
     <Button
+        android:id="@+id/dateSelect"
         android:layout_margin="20dp"
         android:text="날짜를 선택해주세요"
         android:layout_width="match_parent"
