@@ -25,4 +25,13 @@
         android:text="날짜를 선택해주세요"
         android:layout_width="match_parent"
         android:layout_height="60dp"/>
+
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/black"
+        android:text="저장하기"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
 </LinearLayout>

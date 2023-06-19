@@ -56,6 +56,11 @@ class MainActivity : AppCompatActivity() {
                 }, year, month, date )
                 dlg.show()
             }
+
+            val saveBtn = mAlertDialog.findViewById<Button>(R.id.saveBtn)
+            saveBtn?.setOnClickListener {
+
+            }
         }
     }
 }
