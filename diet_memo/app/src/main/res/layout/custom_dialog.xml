@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/healthMemo"
         android:layout_margin="20dp"
         android:hint="운동 메모를 입력해 주세요"
         android:layout_width="match_parent"

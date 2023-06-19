@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -37,6 +38,8 @@ class MainActivity : AppCompatActivity() {
             // 다이얼로그에서 찾아오기
             val DateSelecBtn = mAlertDialog.findViewById<Button>(R.id.dateSelectBtn)
 
+            var dateText = ""
+
             // 날짜를 선택해주세요 버튼 클릭 시 이벤트
             DateSelecBtn?.setOnClickListener {
 
@@ -55,6 +58,8 @@ class MainActivity : AppCompatActivity() {
                         // 날자 선택시 로그 출력
                         Log.e("MAIN", "${year},${month+1},${dayOfMonth}")
                         DateSelecBtn.setText("${year},${month+1},${dayOfMonth}")
+
+                        dateText = "${year},${month+1},${dayOfMonth}"
                     }
                 }, year, month, date )
                 dlg.show()
@@ -65,11 +70,19 @@ class MainActivity : AppCompatActivity() {
             // 버튼클릭시
             saveBtn?.setOnClickListener {
 
-                val database = Firebase.database
-                val myRef = database.getReference("message")
+                val healMemo = mAlertDialog.findViewById<EditText>(R.id.healthMemo)?.text.toString()
 
-                Toast.makeText(this,"test버튼작동됨",Toast.LENGTH_SHORT).show()
-                myRef.setValue("Hello, World!")
+                val database = Firebase.database
+                val myRef = database.getReference("myMemo")
+
+                val model = DataModel(dateText,healMemo)
+
+                // 데이터가 없으면 넣고 있으면 수정
+                //myRef.setValue("Hello, World!")
+                //push() 중복 값이 있어도 계속 추가 저장
+                //myRef.push().setValue("Hello, World!")
+                myRef.push().setValue(model)
+
             }
         }
     }
