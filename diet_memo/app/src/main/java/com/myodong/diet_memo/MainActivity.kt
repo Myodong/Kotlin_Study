@@ -9,8 +9,12 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.time.Year
@@ -19,10 +23,35 @@ import java.util.GregorianCalendar
 
 class MainActivity : AppCompatActivity() {
 
+    val dataModelList = mutableListOf<DataModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val database = Firebase.database
+        val myRef = database.getReference("myMemo")
+
+        // ListView 가져오기
+        val listView = findViewById<ListView>(R.id.mainLV)
+
+        // Adapter 가져오기
+        val adapter = ListViewAdapter(dataModelList)
+
+        myRef.addValueEventListener(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                // 반복문을 통해 snapshot에서 데이터 꺼내기
+                for(dataModel in snapshot.children){
+                    // 리스트에 담기
+                    dataModelList.add(dataModel.getValue(DataModel::class.java)!!)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
 
         val writeButton = findViewById<ImageView>(R.id.writeBtn)
         writeButton.setOnClickListener {
@@ -72,9 +101,6 @@ class MainActivity : AppCompatActivity() {
 
                 val healMemo = mAlertDialog.findViewById<EditText>(R.id.healthMemo)?.text.toString()
 
-                val database = Firebase.database
-                val myRef = database.getReference("myMemo")
-
                 val model = DataModel(dateText,healMemo)
 
                 // 데이터가 없으면 넣고 있으면 수정
@@ -82,6 +108,9 @@ class MainActivity : AppCompatActivity() {
                 //push() 중복 값이 있어도 계속 추가 저장
                 //myRef.push().setValue("Hello, World!")
                 myRef.push().setValue(model)
+
+                // 저장 클릭 후 다이얼로그 닫기
+                mAlertDialog.dismiss()
 
             }
         }
