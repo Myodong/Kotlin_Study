@@ -8,7 +8,10 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import java.time.Year
 import java.util.Calendar
 import java.util.GregorianCalendar
@@ -57,9 +60,16 @@ class MainActivity : AppCompatActivity() {
                 dlg.show()
             }
 
+            // 버튼찾기
             val saveBtn = mAlertDialog.findViewById<Button>(R.id.saveBtn)
+            // 버튼클릭시
             saveBtn?.setOnClickListener {
 
+                val database = Firebase.database
+                val myRef = database.getReference("message")
+
+                Toast.makeText(this,"test버튼작동됨",Toast.LENGTH_SHORT).show()
+                myRef.setValue("Hello, World!")
             }
         }
     }
