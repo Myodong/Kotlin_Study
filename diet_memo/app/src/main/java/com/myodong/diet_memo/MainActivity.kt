@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         // Adapter 가져오기
         val adapter_list = ListViewAdapter(dataModelList)
         //연결하기
-        listView.adapter =adapter_list
+        listView.adapter = adapter_list
 
         myRef.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
