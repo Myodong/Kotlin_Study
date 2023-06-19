@@ -35,17 +35,23 @@ class MainActivity : AppCompatActivity() {
 
         // ListView 가져오기
         val listView = findViewById<ListView>(R.id.mainLV)
-
         // Adapter 가져오기
-        val adapter = ListViewAdapter(dataModelList)
+        val adapter_list = ListViewAdapter(dataModelList)
+        //연결하기
+        listView.adapter =adapter_list
 
         myRef.addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
+
+                dataModelList.clear()
                 // 반복문을 통해 snapshot에서 데이터 꺼내기
                 for(dataModel in snapshot.children){
                     // 리스트에 담기
                     dataModelList.add(dataModel.getValue(DataModel::class.java)!!)
+
                 }
+                // 데이터 모델이 다되고 나면 어댑터를 세로 세팅해줘라
+                adapter_list.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
