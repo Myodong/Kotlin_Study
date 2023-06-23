@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +17,14 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // 북마크 클릭시 설정
+        val bookmarkButton = findViewById<TextView>(R.id.bookmarkBtn)
+        bookmarkButton.setOnClickListener {
+
+            val intent = Intent(this, BookmarkActivity::class.java)
+            startActivity(intent)
+        }
 
         items.add(
             ContentModel(

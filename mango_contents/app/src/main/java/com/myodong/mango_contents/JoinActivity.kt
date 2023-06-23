@@ -11,6 +11,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class JoinActivity : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,7 @@ class JoinActivity : AppCompatActivity() {
 
         val joinBtn = findViewById<Button>(R.id.joinBtn)
         joinBtn.setOnClickListener {
+
             val email = findViewById<EditText>(R.id.emailArea)
             val password = findViewById<EditText>(R.id.passwordArea)
 
