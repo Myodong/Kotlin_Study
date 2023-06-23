@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -33,6 +34,13 @@ android {
 }
 
 dependencies {
+    implementation platform('com.google.firebase:firebase-bom:32.1.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // 비밀번호 인증 Android 라이브러리의 종속 항목
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    // 리얼타임 데이터 베이스 Android 라이브러리의 종속 항목
+    implementation 'com.google.firebase:firebase-database-ktx'
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

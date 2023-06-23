@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "272637938180",
+    "project_id": "inflearn-mango-project",
+    "storage_bucket": "inflearn-mango-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272637938180:android:ae9bf263f5c3c904054351",
+        "android_client_info": {
+          "package_name": "com.myodong.mango_contents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272637938180-qo4kjn66fchf3r1j0p74eoptledn7nth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAukmo8VjZTX-5u3blRR6h5KvSE9LAnW8s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272637938180-qo4kjn66fchf3r1j0p74eoptledn7nth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
