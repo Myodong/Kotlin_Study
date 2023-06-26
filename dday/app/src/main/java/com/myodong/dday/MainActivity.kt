@@ -3,6 +3,7 @@ package com.myodong.dday
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
@@ -58,9 +59,11 @@ class MainActivity : AppCompatActivity() {
                     // 아래 둘다 같은 코드
                     //endDate= year.toString() + (month+1).toString()+dayOfMonth.toString()
                     endDate = "${year}+${month+1}+${dayOfMonth}"
+                    Log.e("day: ",endDate )
 
+                    val textArea =  findViewById<TextView>(R.id.finalDate)
                     // 문자열을 숫자로 만들어 toInt() 연산후 다시 문자열로 setText에 넣어줌
-                    findViewById<TextView>(R.id.finalDate).setText((endDate.toInt() - startDate.toInt() + 1).toString())
+                    textArea.setText((endDate.toInt() - startDate.toInt()).toString())
                 }
 
             },year,month,day)
