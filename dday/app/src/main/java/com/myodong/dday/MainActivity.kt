@@ -9,6 +9,7 @@ import android.widget.DatePicker
 import android.widget.TextView
 import java.util.Calendar
 import java.util.GregorianCalendar
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
 
         var startDate=""
         var endDate=""
+
+        val calendar_start=Calendar.getInstance()
+        val calendar_end=Calendar.getInstance()
 
         // 시작 버튼 클릭 시
         startButton.setOnClickListener {
@@ -37,7 +41,11 @@ class MainActivity : AppCompatActivity() {
 
                     // 아래 둘다 같은 코드
                     //startDate= year.toString() + (month+1).toString()+dayOfMonth.toString()
-                    startDate = "${year}+${month+1}+${dayOfMonth}"
+                    startDate = "${year}"+"${month+1}"+"${dayOfMonth}"
+
+                    calendar_start.set(year,month+1,dayOfMonth)
+
+                    Log.e("day: ",startDate )
                 }
 
             },year,month,day)
@@ -58,12 +66,20 @@ class MainActivity : AppCompatActivity() {
 
                     // 아래 둘다 같은 코드
                     //endDate= year.toString() + (month+1).toString()+dayOfMonth.toString()
-                    endDate = "${year}+${month+1}+${dayOfMonth}"
+                    endDate = "${year}"+"${month+1}"+"${dayOfMonth}"
                     Log.e("day: ",endDate )
+
+                    calendar_end.set(year,month+1,dayOfMonth)
+                    // 시간계산
+                    val finalDate = TimeUnit.MILLISECONDS.toDays(calendar_end.timeInMillis-calendar_start.timeInMillis)
 
                     val textArea =  findViewById<TextView>(R.id.finalDate)
                     // 문자열을 숫자로 만들어 toInt() 연산후 다시 문자열로 setText에 넣어줌
-                    textArea.setText((endDate.toInt() - startDate.toInt()).toString())
+                    //textArea.setText((endDate.toInt() - startDate.toInt()+1).toString())
+
+                    textArea.setText(finalDate.toString())
+
+
                 }
 
             },year,month,day)
