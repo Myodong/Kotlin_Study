@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
+import android.widget.TextView
 import java.util.Calendar
 import java.util.GregorianCalendar
 
@@ -57,6 +58,9 @@ class MainActivity : AppCompatActivity() {
                     // 아래 둘다 같은 코드
                     //endDate= year.toString() + (month+1).toString()+dayOfMonth.toString()
                     endDate = "${year}+${month+1}+${dayOfMonth}"
+
+                    // 문자열을 숫자로 만들어 toInt() 연산후 다시 문자열로 setText에 넣어줌
+                    findViewById<TextView>(R.id.finalDate).setText((endDate.toInt() - startDate.toInt() + 1).toString())
                 }
 
             },year,month,day)
